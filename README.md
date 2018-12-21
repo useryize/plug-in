@@ -1,6 +1,6 @@
-# cli
+# PLUE-IN
 
-> A Vue.js project
+> Accumulate over a long period
 
 ## Build Setup
 
