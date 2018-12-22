@@ -35,7 +35,7 @@ export default {
     }
 };
 </script>
-<style >
+<style>
     .slide-grow{display: flex}
     .slide > div{width: 100%;}
     .slide:nth-child(1) {background-color: red}

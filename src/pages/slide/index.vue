@@ -26,19 +26,17 @@ export default {
         _getTouch () {
             let slide = this.$refs.slide;
             let slideGrow = this.$refs.slideGrow;
-            let startX, moveX, endX;
+            let startX, moveX, endX = 0, offset = 0;
             slide.addEventListener('touchstart', (res) => {
                 startX = res.touches[0].pageX;
             });
             slide.addEventListener('touchmove', (res) => {
                 moveX = res.touches[0].pageX;
-                endX = -(startX - moveX);
-                console.error(endX);
-                if (endX > 0) {
-                    
-                }
-                slideGrow.style.transform = `translate(${endX}px, 0)`
-                console.error();
+                endX = startX - moveX;
+                offset += 2;
+                slideGrow.style.transform = `translateX(${endX > 0 ? -offset : offset}px)`;
+                console.error(offset);
+                // console.error(slideGrow.style.transform);
             });
             slide.addEventListener('touchend', (res) => {
             });
@@ -59,6 +57,7 @@ export default {
 };
 </script>
 <style >
+    body{background-color: #f3f3f3}
     .slide{width: 100%;overflow: hidden;}
     .slide-grow{overflow: hidden;}
     .slide-grow > div{height: 200px;float: left; text-align: center; background-color: #ccc;line-height: 200px; color: #f3f3f3;font-size: 24px}
