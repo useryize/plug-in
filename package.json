@@ -2,7 +2,7 @@
   "name": "cli",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "yize <EX_WLJYR_YIZE>",
+  "author": "yize",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,6 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "better-scroll": "^1.13.2",
+    "echarts": "^4.2.0-rc.2",
+    "swiper": "^4.4.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

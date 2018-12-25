@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import 'better-scroll';
+import 'swiper';
 export default {
     data () {
         return {
