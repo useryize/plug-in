@@ -15,7 +15,11 @@ export default {
             isAbout: false // 滑动到左右两端是否禁止滑动
         };
     },
-    created () {},
+    created () {
+        window.addEventListener('resize', () => {
+            this._getSildeWidth();
+        });
+    },
     mounted () {
         this.$nextTick(() => {
             this._getSildeWidth();
