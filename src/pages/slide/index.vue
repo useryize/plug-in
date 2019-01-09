@@ -14,7 +14,7 @@ import 'swiper';
 export default {
     data () {
         return {
-            data: 'nihao'
+            isAbout: false // 滑动到左右两端是否禁止滑动
         };
     },
     created () {},
@@ -27,20 +27,51 @@ export default {
     methods: {
         _getTouch () {
             let slide = this.$refs.slide;
+            let slideWidth = slide.clientWidth;
             let slideGrow = this.$refs.slideGrow;
-            let startX, moveX, endX = 0, offset = 0;
+            let slideGrowLen = slideGrow.children.length;
+            /* eslint-disable */
+            let startX,  // 滑动开始 X抽坐标
+                moveX,   // 移动过程中 X抽坐标
+                endX = 0,  // 手指X轴移动距离
+                width = 0,  // 容器webkitTransform X值
+                num = 0; // 记录滑动到哪一个item
+            /* eslint-enable */
+            slideGrow.style.transitionDuration = '.5s';
+            slideGrow.style.transform = 'translateX(-0px)';
             slide.addEventListener('touchstart', (res) => {
+                let translateX = slideGrow.style.transform;
                 startX = res.touches[0].pageX;
+                width = parseInt(translateX.substring(translateX.indexOf('(') + 1, translateX.indexOf('px)')));
+                // console.error(width);
             });
             slide.addEventListener('touchmove', (res) => {
                 moveX = res.touches[0].pageX;
                 endX = startX - moveX;
-                offset += 2;
-                slideGrow.style.transform = `translateX(${endX > 0 ? -offset : offset}px)`;
-                console.error(offset);
-                // console.error(slideGrow.style.transform);
+                // 手指滑动方向 左正右负
+                if (this.isAbout) {
+                    // 滑动最左边，手指滑动方向为右 禁止滑动
+                    if (num === 0 && endX < 0) {
+                        return;
+                    }
+                    // 滑动到最右边，手指滑动方向为左 禁止滑动
+                    if (num === slideGrowLen && endX > 0) {
+                        return;
+                    }
+                }
+                // 添加Dom动画
+                slideGrow.style.transform = `translateX(${width - endX}px)`;
             });
             slide.addEventListener('touchend', (res) => {
+                /* eslint-disable */
+                let direction = endX > 0 ? true : false;  // 手指向左滑: true, 右： false
+                /* eslint-enable */
+                if (direction) {
+                    num >= slideGrowLen - 1 ? num = slideGrowLen - 1 : num++;
+                } else {
+                    num === 0 ? num = 0 : num--;
+                }
+                slideGrow.style.transform = `translateX(${-num * slideWidth}px)`;
             });
         },
         _getSildeWidth () {
@@ -51,7 +82,7 @@ export default {
             for (let item of slideGrowChildren) {
                 item.style.width = slideWidth + 'px';
                 width += slideWidth;
-                console.log(width);
+                // console.log(width);
             };
             slideGrow.style.width = width + 'px';
         }
