@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import 'better-scroll';
-import 'swiper';
 export default {
     data () {
         return {
@@ -67,14 +65,17 @@ export default {
                 let direction = endX > 0 ? true : false;  // 手指向左滑: true, 右： false
                 /* eslint-enable */
                 if (direction) {
+                    // 手指左滑动
                     num >= slideGrowLen - 1 ? num = slideGrowLen - 1 : num++;
                 } else {
+                    // 手指右滑动
                     num === 0 ? num = 0 : num--;
                 }
                 slideGrow.style.transform = `translateX(${-num * slideWidth}px)`;
             });
         },
         _getSildeWidth () {
+            // 初始化item宽度
             let slideWidth = +this.$refs.slide.clientWidth,
                 slideGrow = this.$refs.slideGrow,
                 slideGrowChildren = slideGrow.children,
