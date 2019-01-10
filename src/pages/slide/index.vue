@@ -5,6 +5,7 @@
             <div>第二页</div>
             <div>第三页</div>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
