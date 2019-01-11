@@ -5,7 +5,7 @@
             <div>第二页</div>
             <div>第三页</div>
         </div>
-        <router-view></router-view>
+        <div class="title">插件</div>
     </div>
 </template>
 
@@ -99,7 +99,8 @@ export default {
     body{background-color: #f3f3f3}
     .slide{width: 100%;overflow: hidden;}
     .slide-grow{overflow: hidden;}
-    .slide-grow > div{height: 200px;float: left; text-align: center; background-color: #ccc;line-height: 200px; color: #f3f3f3;font-size: 24px}
+    .slide-grow > div{height: 2rem;float: left; text-align: center; background-color: #ccc;line-height: 2rem; color: #f3f3f3;font-size: .14rem}
+    .slide .title {color: rgb(33, 80, 235); text-align: center; line-height: .4rem;}
     /* .slide-grow > div:nth-child(1) {background-color: rgb(17, 38, 134)}
     .slide-grow > div:nth-child(2) {background-color: #bd2222}
     .slide-grow > div:nth-child(3) {background-color: #000} */

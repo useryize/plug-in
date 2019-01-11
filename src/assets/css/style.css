@@ -1,1 +1,9 @@
-*{margin: 0;padding: 0;border: 0 none;font-family: '微软雅黑'}
+*{margin: 0;padding: 0;border: 0 none;font-family: '微软雅黑';}
+/* html{font-size:62.5%}
+@media only screen and (min-width:481px){html{font-size:94%!important}
+}
+@media only screen and (min-width:561px){html{font-size:109%!important}
+}
+@media only screen and (min-width:641px){html{font-size:125%!important}
+body{max-width:640px}
+} */
