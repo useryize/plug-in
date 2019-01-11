@@ -99,8 +99,8 @@ export default {
     body{background-color: #f3f3f3}
     .slide{width: 100%;overflow: hidden;}
     .slide-grow{overflow: hidden;}
-    .slide-grow > div{height: 2rem;float: left; text-align: center; background-color: #ccc;line-height: 2rem; color: #f3f3f3;font-size: .14rem}
-    .slide .title {color: rgb(33, 80, 235); text-align: center; line-height: .4rem;}
+    .slide-grow > div{height: 3rem;float: left; text-align: center; background-color: #ccc;line-height: 3rem; color: #f3f3f3;font-size: .36rem}
+    .slide .title {color: rgb(33, 80, 235); text-align: center; font-size: .20rem; line-height: .40rem}
     /* .slide-grow > div:nth-child(1) {background-color: rgb(17, 38, 134)}
     .slide-grow > div:nth-child(2) {background-color: #bd2222}
     .slide-grow > div:nth-child(3) {background-color: #000} */
