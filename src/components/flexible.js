@@ -1,4 +1,8 @@
 /* eslint-disable */
+/**
+ * yize
+ *20180111
+ */
 ;(function(win, lib) {
     var doc = win.document;
     var docEl = doc.documentElement;
