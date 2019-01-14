@@ -5,7 +5,7 @@
             <div>第二页</div>
             <div>第三页</div>
         </div>
-        <div class="title">插件</div>
+        <router-link to="slide" tag="div" class="title">插件</router-link>
     </div>
 </template>
 
