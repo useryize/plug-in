@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './index.vue';
 import VueRouter from 'vue-router';
 import '../../assets/css/style.css';
-import '../../components/flexible';
+import '../../util/flexible';
 import slide from './slide';
 
 Vue.config.productionTip = false;
