@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import App from './index.vue';
 import VueRouter from 'vue-router';
-import '../../assets/css/style.css';
-import '../../util/flexible';
+import '../../util/common';
 import slide from './slide';
 
 Vue.config.productionTip = false;
