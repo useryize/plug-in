@@ -4,7 +4,7 @@
             <div v-for="(item, index) in week" :key="index">{{item}}</div>
         </div>
         <div class="calendar-box">
-            <div v-for="(item, index) in days" :key="index" :class="{'focu': isfocu(item)}">{{item.getDate()}}</div>
+            <div v-for="(item, index) in days" :key="index" :class="{'focu': isfocu(item, 'focu'), 'gray': isfocu(item, 'gray')}">{{item.getDate()}}</div>
         </div>
     </section>
 </template>
@@ -27,10 +27,15 @@ export default {
     },
     methods: {
         // 是否为今天
-        isfocu (item) {
-            return this.nDate.getFullYear() === item.getFullYear() &&
-            this.nDate.getMonth() === item.getMonth() &&
-            this.nDate.getDate() === item.getDate();
+        isfocu (item, type) {
+            if (type === 'focu') {
+                return this.nDate.getFullYear() === item.getFullYear() &&
+                this.nDate.getMonth() === item.getMonth() &&
+                this.nDate.getDate() === item.getDate();
+            }
+            if (type === 'gray') {
+                return this.yzMonth !== item.getMonth() + 1;
+            }
         },
         _initData (cur) {
             let day = new Date();
@@ -46,14 +51,16 @@ export default {
             this.yzWeek = day.getDay() === 0 ? 7 : day.getDay();
             // 获取当天之前的天数
             for (let i = this.yzWeek - 1; i > 0; i--) {
-                let d = day.setDate(this.yzDay - i);
-                this.days.push(new Date(d));
+                let d = new Date(day);
+                d.setDate(this.yzDay - i);
+                this.days.push(d);
             }
 
             // 获取当天之后的天数
             for (let i = 0; i <= 35 - this.yzWeek; i++) {
-                let d = day.setDate(this.yzDay + i);
-                this.days.push(new Date(d));
+                let d = new Date(day);
+                d.setDate(this.yzDay + i);
+                this.days.push(d);
             }
         }
     }
