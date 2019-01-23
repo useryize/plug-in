@@ -1,4 +1,8 @@
 .calendar-top, .calendar-box{ display: flex; flex-wrap: wrap; margin: 0 1%}
+.calendar-top > div {color: #9e9e9e}
 .calendar-top > div, .calendar-box > div{width: 14%; height: .6rem; text-align: center; line-height: .6rem; font-size: .24rem; border-bottom: #dddddd solid 1px}
 .calendar-box > div.focu{color: #fa931c}
 .calendar-box > div.gray{color: #9e9e9e}
+.header{display: flex; height: 1rem; background-color: #fa931c; line-height: 1rem; color:#ffffff}
+.header > div:nth-child(2){width: 40%; text-align: center; font-size: .36rem}
+.header > div:nth-child(1), .header > div:nth-child(3), .header > div:nth-child(4){width: 20%; text-align: center; background-color: #fa992b;}
