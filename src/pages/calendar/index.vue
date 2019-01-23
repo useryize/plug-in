@@ -4,7 +4,7 @@
             <div v-for="(item, index) in week" :key="index">{{item}}</div>
         </div>
         <div class="calendar-box">
-            <div v-for="(item, index) in days" :key="index" :class="{'focu': isfocu(item, 'focu'), 'gray': isfocu(item, 'gray')}">{{item.getDate()}}</div>
+            <div v-for="(item, index) in days" :key="index" :class="{'focu': isStyle(item, 'focu'), 'gray': isStyle(item, 'gray')}">{{item.getDate()}}</div>
         </div>
     </section>
 </template>
@@ -26,13 +26,15 @@ export default {
         this._initData();
     },
     methods: {
-        // 是否为今天
-        isfocu (item, type) {
+        // 处理日期上的各种样式
+        isStyle (item, type) {
+            // 是否为今天
             if (type === 'focu') {
                 return this.nDate.getFullYear() === item.getFullYear() &&
                 this.nDate.getMonth() === item.getMonth() &&
                 this.nDate.getDate() === item.getDate();
             }
+            // 是否为本月
             if (type === 'gray') {
                 return this.yzMonth !== item.getMonth() + 1;
             }
