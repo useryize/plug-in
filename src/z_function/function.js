@@ -64,4 +64,4 @@ function setTimeout () {
     console.log(this.prototype.oneApply());
  }
 
-applyCallBind();
+ 
