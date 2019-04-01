@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <p id="b">akhsdkahsdkahkdhak;dha;kdhaksh</p>    
+    </div>
+    <script>
+        let div = document.getElementById('a');
+        let p = document.getElementById('b');
+        p.addEventListener('click', f2, false);
+        div.addEventListener('click', f1, false);
+        
+        function f2 () {
+            console.log('f2')
+        }
+        function f1 () {
+            console.log('f1')
+        }
+        
+    </script>
+</body>
+</html>
